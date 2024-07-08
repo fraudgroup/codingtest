@@ -1,5 +1,13 @@
 function solution(arr) {
-  let answer = 1;
+  let answer = 0;
+  let maxHeight = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > maxHeight) {
+      maxHeight = arr[i];
+      answer += 1;
+    }
+  }
 
   return answer;
 }
