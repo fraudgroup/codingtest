@@ -1,5 +1,8 @@
 function solution(arr) {
-  return arr.sort((a, b) => b - a)[0];
+  let answer = [];
+  const N = arr.length;
+  answer = arr.filter((el) => el >= N);
+  return answer;
 }
 
 let arr = [7, 3, 9, 5, 6, 12];
