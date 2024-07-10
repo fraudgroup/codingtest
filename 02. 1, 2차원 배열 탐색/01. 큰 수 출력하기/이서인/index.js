@@ -1,6 +1,4 @@
 function solution(arr) {
-  let answer = [];
-  const N = arr.length;
   return arr.filter((el, index) => {
     if (index === 0) return true;
     return el > arr[index - 1];
