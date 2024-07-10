@@ -1,3 +1,4 @@
+// 2-3. 가위바위보
 function solution(a, b) {
   return a
     .map((_, index) => {
