@@ -1,3 +1,4 @@
+// 2-4. 점수 계산
 function solution(arr) {
   let count = 0;
   let sum = 0;
