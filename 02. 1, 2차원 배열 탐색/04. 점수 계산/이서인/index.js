@@ -5,8 +5,7 @@ function solution(arr) {
 
   arr.forEach((el, index) => {
     if (el === 1) {
-      if (index === 0 || arr[index - 1] === 0) count = 1;
-      if (arr[index - 1] === 1) count++;
+      count = arr[index - 1] === 1 ? count + 1 : 1;
       sum += count;
     }
   });
