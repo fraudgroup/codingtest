@@ -30,3 +30,27 @@ let arr = [87, 89, 92, 100, 76];
 let arr2 = [92, 87, 92, 76, 92];
 console.log('예상 결과: 4 3 2 1 5 -> ', solution(arr));
 console.log('예상 결과: 1 4 1 5 1 -> ', solution(arr2));
+
+/*
+✅문제 풀이 날짜: 2024-07-11
+*/
+
+function solution2(arr) {
+  let answer = [];
+  let scoreMap = new Map();
+
+  [...arr]
+    .sort((a, b) => b - a)
+    .forEach((score, index) => {
+      scoreMap.set(score, scoreMap.get(score) || index + 1);
+    });
+
+  for (let i = 0; i < arr.length; i++) {
+    answer.push(scoreMap.get(arr[i]));
+  }
+
+  return answer;
+}
+
+console.log('예상 결과2: 4 3 2 1 5 -> ', solution2(arr));
+console.log('예상 결과2: 1 4 1 5 1 -> ', solution2(arr2));
