@@ -1,5 +1,13 @@
 function solution(arr) {
   let answer = 1;
+  let taller = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (taller < arr[i]) {
+      taller = arr[i];
+      answer++;
+    }
+  }
 
   return answer;
 }
