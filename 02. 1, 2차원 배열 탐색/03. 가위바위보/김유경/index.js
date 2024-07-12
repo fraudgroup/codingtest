@@ -1,5 +1,5 @@
 function solution(a, b) {
-  let answer = "";
+  let answer = [];
 
   function checkVictory(a, b) {
     if (a === b) {
@@ -31,10 +31,10 @@ function solution(a, b) {
   }
 
   for (let i = 0; i < a.length; i++) {
-    answer += checkVictory(a[i], b[i]);
+    answer.push(checkVictory(a[i], b[i]));
   }
 
-  return answer;
+  return answer.join("\n");
 }
 
 let a = [2, 3, 3, 1, 3];
