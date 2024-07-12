@@ -5,28 +5,10 @@ function solution(a, b) {
     if (a === b) {
       return "D";
     }
-    switch (a) {
-      case 1: {
-        if (b === 2) {
-          return "B";
-        } else if (b === 3) {
-          return "A";
-        }
-      }
-      case 2: {
-        if (b === 1) {
-          return "A";
-        } else if (b === 3) {
-          return "B";
-        }
-      }
-      case 3: {
-        if (b === 1) {
-          return "B";
-        } else if (b === 2) {
-          return "A";
-        }
-      }
+    if ((a === 1 && b === 3) || (a === 2 && b === 1) || (a === 3 && b === 2)) {
+      return "A";
+    } else {
+      return "B";
     }
   }
 
