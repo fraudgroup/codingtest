@@ -6,8 +6,8 @@ function solution(arr) {
   );
 
   const heightSumArr = new Array(arr[0].length).fill(0);
-  arr.forEach((el) => {
-    el.forEach((el, index) => {
+  arr.forEach((arrElement) => {
+    arrElement.forEach((el, index) => {
       heightSumArr[index] += el;
     });
   });
