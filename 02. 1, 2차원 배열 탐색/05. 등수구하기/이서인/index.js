@@ -1,8 +1,7 @@
 function solution(arr) {
-  let answer = [];
-
-  return answer;
+  let copiedArr = [...arr].sort((a, b) => b - a);
+  return arr.map((el) => copiedArr.indexOf(el) + 1);
 }
 
-let arr = [87, 89, 92, 100, 76];
+let arr = [87, 89, 100, 100, 76];
 console.log(solution(arr));
