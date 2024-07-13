@@ -5,13 +5,13 @@ function solution(arr) {
     ...arr.map((el) => el.reduce((acc, cur) => acc + cur), 0)
   );
 
-  const result = new Array(arr[0].length).fill(0);
+  const heightSumArr = new Array(arr[0].length).fill(0);
   arr.forEach((el) => {
     el.forEach((el, index) => {
-      result[index] += el;
+      heightSumArr[index] += el;
     });
   });
-  const maxHeight = Math.max(...result);
+  const maxHeight = Math.max(...heightSumArr);
 
   const leftDiagonal = arr
     .map((el, index) => el[index])
