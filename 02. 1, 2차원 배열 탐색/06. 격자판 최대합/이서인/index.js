@@ -21,9 +21,7 @@ function solution(arr) {
     .map((el, index) => el[arr[0].length - index - 1])
     .reduce((acc, cur) => acc + cur, 0);
 
-  answer = Math.max(maxWidth, maxHeight, leftDiagonal, rightDiagonal);
-
-  return answer;
+  return (answer = Math.max(maxWidth, maxHeight, leftDiagonal, rightDiagonal));
 }
 
 let arr = [
