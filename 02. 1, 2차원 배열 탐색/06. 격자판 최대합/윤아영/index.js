@@ -1,7 +1,32 @@
-function solution(arr) {
-  let answer = Number.MIN_SAFE_INTEGER;
+/**
+ * n * n 2차원 배열이 주어진다.
+ * 각 행의 합, 각 열의 합, 두 대각선의 합 중 가장 큰 합을 출력한다.
+ */
 
-  return answer;
+function solution(arr) {
+  let maxSum = Number.MIN_SAFE_INTEGER;
+  let diagonalLeftToRight = 0;
+  let diagonalRightToLeft = 0;
+
+  // 가로 세로 합
+  for (let i = 0; i < arr.length; i++) {
+    let rowSum = 0;
+    let columnSum = 0;
+    for (let j = 0; j < arr.length; j++) {
+      rowSum += arr[i][j];
+      columnSum += arr[j][i];
+    }
+
+    maxSum = Math.max(maxSum, rowSum, columnSum);
+  }
+
+  // 대각선 합
+  for (let i = 0; i < arr.length; i++) {
+    diagonalLeftToRight += arr[i][i];
+    diagonalRightToLeft += arr[i][arr.length - (i + 1)];
+  }
+
+  return Math.max(maxSum, diagonalLeftToRight, diagonalRightToLeft);
 }
 
 let arr = [
