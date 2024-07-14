@@ -1,6 +1,28 @@
 function solution(arr) {
   let answer = 0;
 
+  const directions = [
+    [-1, 0],
+    [1, 0],
+    [0, -1],
+    [0, 1],
+  ];
+
+  arr.forEach((row, i) => {
+    row.forEach((el, j) => {
+      const isPeak = directions.every(([directionX, directionY]) => {
+        const newI = i + directionX;
+        const newJ = j + directionY;
+
+        if (newI < 0 || newI >= arr.length || newJ < 0 || newJ >= arr.length) {
+          return true;
+        }
+        return el > arr[newI][newJ];
+      });
+
+      if (isPeak) answer++;
+    });
+  });
   return answer;
 }
 
