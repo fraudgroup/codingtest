@@ -21,7 +21,7 @@ function solution(s) {
   const reverse = [...s].reverse().join('');
 
   if (s.toUpperCase() !== reverse.toUpperCase()) {
-    answer = 'No';
+    answer = 'NO';
   }
 
   return answer;
@@ -46,7 +46,7 @@ function solution2(s) {
     const current = s[i];
     const reverse = s[LENGTH - 1 - i];
     if (current.toUpperCase() !== reverse.toUpperCase()) {
-      answer = 'No';
+      answer = 'NO';
       break;
     }
   }
