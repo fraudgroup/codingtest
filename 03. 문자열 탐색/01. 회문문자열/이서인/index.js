@@ -1,8 +1,8 @@
 function solution(s) {
-  let answer = 'YES';
-
-  return answer;
+  return s.toUpperCase() === [...s].reverse().join("").toUpperCase()
+    ? "YES"
+    : "NO";
 }
 
-let str = 'goooG';
+let str = "goooG";
 console.log(solution(str));
