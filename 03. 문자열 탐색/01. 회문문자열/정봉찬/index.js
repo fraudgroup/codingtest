@@ -29,3 +29,29 @@ function solution(s) {
 
 let str = 'goooG';
 console.log(solution(str));
+
+/*
+✅문제 풀이 날짜: 2024-07-15
+
+💡알고리즘 설계
+  - 문자열의 길이만큼 반복문 돌면서 현재 인덱스(i)와 (문자열 길이 - 1 - i)를 소문자 변환 또는 대문자 변환 후 비교한다.
+*/
+
+function solution2(s) {
+  let answer = 'YES';
+
+  const LENGTH = s.length;
+
+  for (let i = 0; i < Math.trunc(LENGTH / 2); i++) {
+    const current = s[i];
+    const reverse = s[LENGTH - 1 - i];
+    if (current.toUpperCase() !== reverse.toUpperCase()) {
+      answer = 'No';
+      break;
+    }
+  }
+
+  return answer;
+}
+
+console.log('solution2: ', solution2(str));
