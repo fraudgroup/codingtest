@@ -1,35 +1,15 @@
 function solution(s) {
-  const alphabet = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ];
+  const alphabet = Array.from({ length: 26 }, (v, i) =>
+    String.fromCharCode(i + 97)
+  );
+  Array(26)
+    .fill()
+    .map((v, i) => String.fromCharCode(i + 97));
+
   const filteredS = [...s.toLowerCase()]
     .filter((el) => alphabet.includes(el))
     .join("");
+
   return filteredS === [...filteredS].reverse().join("") ? "YES" : "NO";
 }
 
