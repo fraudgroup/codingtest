@@ -1,7 +1,13 @@
 function solution(s) {
-  let answer = 'YES';
+  const lowerString = s.toLowerCase();
 
-  return answer;
+  for (let i = 0; i < s.length / 2; i++) {
+    if (lowerString[i] !== lowerString[lowerString.length - (i + 1)]) {
+      return 'NO';
+    }
+  }
+
+  return 'YES';
 }
 
 let str = 'goooG';
