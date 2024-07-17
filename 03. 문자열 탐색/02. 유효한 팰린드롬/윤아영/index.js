@@ -1,8 +1,14 @@
 function solution(s) {
-  let answer = 'YES';
+  const string = s.toUpperCase().replaceAll(/[^A-Z]/g, "");
 
-  return answer;
+  for (let i = 0; i < string.length / 2; i++) {
+    if (string[i] !== string[string.length - i - 1]) {
+      return "NO";
+    }
+  }
+
+  return "YES";
 }
 
-let str = 'found7, time: study; Yduts; emit, 7Dnuof';
+let str = "found7, time: study; Yduts; emit, 7Dnuof";
 console.log(solution(str));
