@@ -1,5 +1,6 @@
 function solution(arr) {
   let answer;
+  answer = Math.min(...arr);
 
   return answer;
 }
