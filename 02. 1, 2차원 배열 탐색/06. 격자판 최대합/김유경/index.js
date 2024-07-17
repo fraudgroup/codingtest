@@ -1,6 +1,6 @@
 function solution(arr) {
   const L = arr.length;
-  let sumList = [];
+  let maxSum = 0;
   let rowSum, columnSum;
   let toLeftCrossSum = 0;
   let toRightCrossSum = 0;
@@ -22,11 +22,11 @@ function solution(arr) {
         toLeftCrossSum += arr[i][j];
       }
     }
-    sumList.push(rowSum, columnSum);
+    maxSum = Math.max(rowSum, columnSum, maxSum);
   }
-  sumList.push(toLeftCrossSum, toRightCrossSum);
+  maxSum = Math.max(maxSum, toLeftCrossSum, toRightCrossSum);
 
-  return Math.max(...sumList);
+  return maxSum;
 }
 
 let arr = [
