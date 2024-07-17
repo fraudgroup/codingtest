@@ -10,10 +10,14 @@ function solution(arr) {
       let left = j > 0 ? arr[i][j - 1] : 0;
       let right = j < L - 1 ? arr[i][j + 1] : 0;
 
-      maxCount =
-        current > top && current > bottom && current > left && current > right
-          ? maxCount + 1
-          : maxCount;
+      if (
+        current > top &&
+        current > bottom &&
+        current > left &&
+        current > right
+      ) {
+        maxCount++;
+      }
     }
   }
 
