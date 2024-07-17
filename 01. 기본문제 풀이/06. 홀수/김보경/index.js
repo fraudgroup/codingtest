@@ -1,5 +1,7 @@
 function solution(arr) {
-  let answer = [];
+  let answer = 0;
+
+  answer = arr.reduce((acc, el) => (el % 2 === 0 ? acc : acc + el), 0);
 
   return answer;
 }
