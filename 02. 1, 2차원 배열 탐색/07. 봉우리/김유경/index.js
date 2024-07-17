@@ -1,7 +1,23 @@
 function solution(arr) {
-  let answer = 0;
+  let L = arr.length;
+  let maxCount = 0;
 
-  return answer;
+  for (let i = 0; i < L; i++) {
+    for (let j = 0; j < L; j++) {
+      let current = arr[i][j];
+      let top = i > 0 ? arr[i - 1][j] : 0;
+      let bottom = i < L - 1 ? arr[i + 1][j] : 0;
+      let left = j > 0 ? arr[i][j - 1] : 0;
+      let right = j < L - 1 ? arr[i][j + 1] : 0;
+
+      maxCount =
+        current > top && current > bottom && current > left && current > right
+          ? maxCount + 1
+          : maxCount;
+    }
+  }
+
+  return maxCount;
 }
 
 let arr = [
