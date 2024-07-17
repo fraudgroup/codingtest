@@ -1,8 +1,17 @@
 function solution(s) {
-  let answer = 'YES';
+  const alphabet = Array.from({ length: 26 }, (v, i) =>
+    String.fromCharCode(i + 97)
+  );
+  Array(26)
+    .fill()
+    .map((v, i) => String.fromCharCode(i + 97));
 
-  return answer;
+  const filteredS = [...s.toLowerCase()]
+    .filter((el) => alphabet.includes(el))
+    .join("");
+
+  return filteredS === [...filteredS].reverse().join("") ? "YES" : "NO";
 }
 
-let str = 'found7, time: study; Yduts; emit, 7Dnuof';
+let str = "found7, time: study; Yduts; emit, 7Dnuof";
 console.log(solution(str));
