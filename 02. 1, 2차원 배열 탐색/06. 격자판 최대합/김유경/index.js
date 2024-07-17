@@ -18,7 +18,7 @@ function solution(arr) {
         toRightCrossSum += arr[i][j];
       }
 
-      if (i + j === 5) {
+      if (i + j === L - 1) {
         toLeftCrossSum += arr[i][j];
       }
     }
