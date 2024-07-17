@@ -1,6 +1,11 @@
 function solution(day, arr) {
   let answer = 0;
 
+  arr.forEach((el) => {
+    let add = el.toString().split("");
+    add[1] == day ? answer++ : answer;
+  });
+
   return answer;
 }
 
