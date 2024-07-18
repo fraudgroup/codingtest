@@ -1,6 +1,27 @@
 function solution(arr) {
   let answer = arr;
 
+  let nineHeight = answer.reduce((acc, el) => acc + el, 0);
+
+  for (let i = 0; i < answer.length; i++) {
+    let test = [...answer];
+    let sevenHeight = 100;
+    let eightHeight = nineHeight - test[i];
+    test.pop(i);
+    if (eightHeight > sevenHeight) {
+      for (let j = 0; j < test.length; j++) {
+        if (eightHeight - test[j] === sevenHeight) {
+          test.pop(j);
+        }
+      }
+    }
+
+    let sum = test.reduce((acc, el) => acc + el, 0);
+    if (test.length === 7 || sum === sevenHeight) {
+      answer = test;
+    }
+  }
+
   return answer;
 }
 
