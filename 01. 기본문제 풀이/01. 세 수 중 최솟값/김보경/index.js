@@ -6,9 +6,7 @@ function solution(a, b, c) {
     answer = b;
   }
 
-  if (answer < c) {
-    return;
-  } else {
+  if (answer > c) {
     answer = c;
   }
 

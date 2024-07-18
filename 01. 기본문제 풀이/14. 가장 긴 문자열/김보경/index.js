@@ -1,8 +1,11 @@
 function solution(s) {
   let answer = "";
 
-  let arr = [...s].map((el) => el.length);
-  answer = Math.max(...arr);
+  s.forEach((el) => {
+    if (el.length > answer.length) {
+      answer = el;
+    }
+  });
 
   return answer;
 }
