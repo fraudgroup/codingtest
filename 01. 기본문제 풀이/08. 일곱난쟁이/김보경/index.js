@@ -16,7 +16,8 @@ function solution(arr) {
       }
     }
 
-    if (test.length === 7) {
+    let sum = test.reduce((acc, el) => acc + el, 0);
+    if (test.length === 7 || sum === sevenHeight) {
       answer = test;
     }
   }
