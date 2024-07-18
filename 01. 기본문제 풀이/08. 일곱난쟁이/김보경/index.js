@@ -1,33 +1,26 @@
 function solution(arr) {
   let answer = arr;
 
-  let nineHeight = arr.reduce((acc, el) => acc + el, 0);
+  let nineHeight = answer.reduce((acc, el) => acc + el, 0);
 
-  let fakers = [];
-
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < answer.length; i++) {
+    let test = [...answer];
     let sevenHeight = 100;
-    let eightHeight = nineHeight - arr[i];
-    let faker = [];
-    faker.push(i);
+    let eightHeight = nineHeight - test[i];
+    test.pop(i);
     if (eightHeight > sevenHeight) {
-      for (let j = 0; j < arr.length; j++) {
-        if (j === i) {
-          continue;
-        }
-
-        if (eightHeight - arr[j] === sevenHeight) {
-          faker.push(j);
+      for (let j = 0; j < test.length; j++) {
+        if (eightHeight - test[j] === sevenHeight) {
+          test.pop(j);
         }
       }
     }
 
-    if (faker.length >= 2) {
-      fakers.push(faker);
+    if (test.length === 7) {
+      answer = test;
     }
   }
 
-  console.log(fakers);
   return answer;
 }
 
