@@ -1,45 +1,18 @@
 function solution(s) {
-  const ALPHABET = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-  ];
-  let L = s.length;
-  let strArray = new Array({ length: L });
-  let reverseArray = new Array({ length: L });
+  const onlyAlphabet = s.toLowerCase().replace(/[^a-z]/g, "");
 
-  for (let i = 0; i < L; i++) {
-    const lowerAlphabet = s[i].toLowerCase();
-    if (ALPHABET.includes(lowerAlphabet)) {
-      strArray[i] = lowerAlphabet;
-      reverseArray[L - 1 - i] = lowerAlphabet;
+  let backward = 0;
+  let forward = onlyAlphabet.length - 1;
+
+  while (backward < forward) {
+    if (onlyAlphabet[backward] !== onlyAlphabet[forward]) {
+      return "No";
     }
+    backward++;
+    forward--;
   }
 
-  return strArray.join("") === reverseArray.join("") ? "YES" : "No";
+  return "YES";
 }
 
 /** 입출력 테스트 */
