@@ -1,6 +1,9 @@
 function solution(s) {
-  let answer = '';
+  let answer = "";
+
+  let arr = [...new Set(s)].join("");
+  answer = arr;
 
   return answer;
 }
-console.log(solution('ksekkset'));
+console.log(solution("ksekkset"));
