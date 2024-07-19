@@ -15,6 +15,10 @@ function solution(s) {
     repeatNumber = 1;
   }
 
+  if (repeatNumber > 1) {
+    answer += repeatNumber;
+  }
+
   return answer;
 }
 
