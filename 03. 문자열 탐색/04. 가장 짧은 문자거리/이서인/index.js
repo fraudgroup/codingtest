@@ -1,8 +1,8 @@
 function solution(s, t) {
   const L = s.length;
-  const distances = new Array(L).fill(Infinity);
+  const distances = new Array(L).fill(L);
 
-  let lastPosition = -Infinity;
+  let lastPosition = -L;
   for (let i = 0; i < L; i++) {
     if (s[i] === t) {
       lastPosition = i;
@@ -10,7 +10,7 @@ function solution(s, t) {
     distances[i] = i - lastPosition;
   }
 
-  lastPosition = Infinity;
+  lastPosition = -L;
   for (let i = L - 1; i >= 0; i--) {
     if (s[i] === t) {
       lastPosition = i;
