@@ -1,11 +1,7 @@
 function solution(str) {
-  let answer = Number(str.replace(/[^0-9]/g, ""));
+  let answer = parseInt(str.replace(/[^0-9]/g, ""));
 
-  while (answer > 100000000) {
-    answer = Number(answer.toString().slice(0, -1));
-  }
-
-  return answer;
+  return answer > 100000000 ? 100000000 : answer;
 }
 
 let str = "g0en2T0s8eSoft";
