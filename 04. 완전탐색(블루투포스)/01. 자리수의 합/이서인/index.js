@@ -1,7 +1,20 @@
 function solution(n, arr) {
-  let answer;
+  const formattedNs = arr.map((el) => {
+    return [...el.toString()].reduce((a, b) => a * 1 + b * 1);
+  });
 
-  return answer;
+  const maxEl = Math.max(...formattedNs);
+
+  const maxElIndex = formattedNs
+    .map((n, index) => (n === maxEl ? index : -1))
+    .filter((index) => index !== -1);
+
+  if (maxElIndex.length > 1) {
+    const maxValues = maxElIndex.map((index) => arr[index]);
+    return Math.max(...maxValues);
+  } else {
+    return formattedNs[maxElIndex[0]];
+  }
 }
 
 let arr = [128, 460, 603, 40, 521, 137, 123];
