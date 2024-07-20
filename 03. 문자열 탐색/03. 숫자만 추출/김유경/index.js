@@ -1,7 +1,8 @@
 function solution(str) {
+  const MAX_SIZE = 100000000;
   let answer = parseInt(str.replace(/[^0-9]/g, ""));
 
-  return answer > 100000000 ? 100000000 : answer;
+  return answer > MAX_SIZE ? MAX_SIZE : answer;
 }
 
 let str = "g0en2T0s8eSoft";
