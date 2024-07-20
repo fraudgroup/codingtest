@@ -1,5 +1,11 @@
 function solution(arr) {
   let answer = [];
+  let prevEl = 0;
+
+  arr.forEach((el) => {
+    el > prevEl && answer.push(el);
+    prevEl = el;
+  });
 
   return answer;
 }
