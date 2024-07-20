@@ -13,7 +13,7 @@ function solution(n, arr) {
     const maxValues = maxElIndex.map((index) => arr[index]);
     return Math.max(...maxValues);
   } else {
-    return formattedNs[maxElIndex[0]];
+    return arr[maxElIndex[0]];
   }
 }
 
