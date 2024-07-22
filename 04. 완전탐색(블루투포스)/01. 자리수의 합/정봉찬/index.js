@@ -20,17 +20,19 @@ function solution(n, arr) {
 
   for (let i = 0; i < n; i++) {
     const current = arr[i];
-    const sum = +[...current.toString()].reduce((pre, cur) => pre + +cur, 0);
+    const sum = [...current.toString()].reduce((pre, cur) => pre + +cur, 0);
 
     if (sum < maxValue) {
       continue;
     }
 
-    maxValue = sum;
-
-    if (current >= maxKey) {
-      maxKey = current;
+    if (sum === maxValue) {
+      maxKey = maxKey > current ? maxKey : current;
+      continue;
     }
+
+    maxKey = current;
+    maxValue = sum;
   }
 
   answer = maxKey;
@@ -39,4 +41,6 @@ function solution(n, arr) {
 }
 
 let arr = [128, 460, 603, 40, 521, 137, 123];
+let arr2 = [111, 22];
 console.log(solution(7, arr));
+console.log(solution(2, arr2));
