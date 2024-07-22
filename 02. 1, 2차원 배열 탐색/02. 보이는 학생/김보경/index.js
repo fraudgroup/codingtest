@@ -1,5 +1,13 @@
 function solution(arr) {
-  let answer = 1;
+  let answer = 0;
+  let prevHeight = 0;
+
+  arr.forEach((el) => {
+    if (el > prevHeight) {
+      answer++;
+      prevHeight = el;
+    }
+  });
 
   return answer;
 }
