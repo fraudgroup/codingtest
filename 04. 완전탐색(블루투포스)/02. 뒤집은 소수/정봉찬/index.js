@@ -23,7 +23,7 @@ function solution(arr) {
     const num = arr[i];
     const reverseNum = parseInt([...num.toString()].reverse().join(''));
 
-    if (reverseNum === 1) {
+    if (reverseNum <= 1) {
       continue;
     }
 
