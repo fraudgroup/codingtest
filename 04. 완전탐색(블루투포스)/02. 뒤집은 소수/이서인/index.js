@@ -3,17 +3,17 @@ function solution(arr) {
     parseInt([...(el + "")].reverse().join(""))
   );
   return reversedNumbers
-    .map((number) => {
+    .filter((number) => {
       if (number > 1) {
         for (let i = 2; i <= Math.sqrt(number); i++) {
           if (number % i === 0) {
-            return 0;
+            return false;
           }
         }
-        return number;
+        return true;
       }
+      return false;
     })
-    .filter((n) => n !== 0)
     .join(" ");
 }
 
