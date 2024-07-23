@@ -12,9 +12,8 @@ function solution(n, arr) {
   if (maxElIndex.length > 1) {
     const maxValues = maxElIndex.map((index) => arr[index]);
     return Math.max(...maxValues);
-  } else {
-    return arr[maxElIndex[0]];
   }
+  return arr[maxElIndex[0]];
 }
 
 let arr = [128, 460, 603, 40, 521, 137, 123];
