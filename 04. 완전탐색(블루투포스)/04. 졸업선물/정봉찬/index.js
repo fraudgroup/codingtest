@@ -15,6 +15,10 @@
   - 학생수만큼 반복문을 돈다. 그 안에서 학생수만큼 반복문을 다시 돈다.
   - 외부 반복문의 인덱스와 내부 반복문의 인덱스가 같으면 continue한다.
   - 예산(m) 이하로 구매 가능한 학생 수를 계산해서 가장 많은 학생 수 케이스를 출력값에 넣는다.
+
+❌ 오답
+  - 상품 하나만 반값으로 살 수 있다.
+  - 알고리즘 설계를 다시 해야한다.
 */
 
 function solution(m, product) {
@@ -77,3 +81,47 @@ console.log(solution(28, arr)); // 4
 console.log(solution(41, arr2)); // 5
 console.log(solution(41, arr3)); // 5
 console.log(solution(33, arr4)); // 3
+
+/*
+✅문제 풀이 날짜: 2024-07-24
+
+💡알고리즘 설계
+  - 학생수만큼 반복문을 돈다. 그 안에서 학생수만큼 반복문을 다시 돈다.
+  - 외부 반복문의 인덱스와 내부 반복문의 인덱스가 같으면 continue한다.
+  - 예산(m) 이하로 구매 가능한 학생 수를 계산해서 가장 많은 학생 수 케이스를 출력값에 넣는다.
+*/
+function solution2(m, product) {
+  let answer = 0;
+
+  product.sort((a, b) => a[0] + a[1] - (b[0] + b[1]));
+
+  for (let i = 0; i < product.length; i++) {
+    let totalPay = product[i][0] / 2 + product[i][1];
+    let productCount = 1;
+
+    for (let j = 0; j < product.length; j++) {
+      if (i === j) {
+        continue;
+      }
+
+      totalPay += product[j][0] + product[j][1];
+
+      if (totalPay > m) {
+        break;
+      }
+
+      productCount++;
+    }
+
+    if (productCount > answer) {
+      answer = productCount;
+    }
+  }
+
+  return answer;
+}
+
+console.log('solution2: ', solution2(28, arr)); // 4
+console.log('solution2: ', solution2(41, arr2)); // 5
+console.log('solution2: ', solution2(41, arr3)); // 5
+console.log('solution2: ', solution2(33, arr4)); // 3
