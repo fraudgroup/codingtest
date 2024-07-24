@@ -1,49 +1,41 @@
 function solution(m, product) {
-  let sums = [];
+  let sums = product.map((el) => el[0] + el[1]);
 
-  for (let i = 0; i < product.length; i++) {
-    sums.push(product[i][0] + product[i][1]);
-  }
-
-  sums = sums.sort((a, b) => a - b);
+  sums.sort((a, b) => a - b);
 
   let buyProducts = 0;
   let currentPrice = 0;
 
   for (let i = 0; i < sums.length; i++) {
-    if (currentPrice + sums[i] <= m) {
-      currentPrice += sums[i];
-      buyProducts++;
-    } else {
+    if (currentPrice + sums[i] > m) {
       break;
     }
+    currentPrice += sums[i];
+    buyProducts++;
   }
 
   if (buyProducts < product.length) {
-    const nextProductPrice = product[buyProducts][0];
-    const nextDeliveryPrice = product[buyProducts][1];
+    let maxSavings = 0;
+    for (let i = 0; i < buyProducts; i++) {
+      let savings = product[i][0] / 2;
+      if (savings > maxSavings) {
+        maxSavings = savings;
+      }
+    }
+    const nextProduct = product[buyProducts];
 
-    if (currentPrice + nextProductPrice / 2 + nextDeliveryPrice <= m) {
+    if (currentPrice + nextProduct[0] / 2 + nextProduct[1] - maxSavings <= m) {
       buyProducts++;
     }
   }
   return buyProducts;
 }
 
-let arr = [
-  [6, 6],
-  [2, 2],
-  [4, 3],
-  [4, 5],
-  [10, 3],
-];
-console.log(solution(28, arr));
-// console.log(
-//   solution(41, [
-//     [8, 6],
-//     [2, 2],
-//     [12, 1],
-//     [4, 5],
-//     [4, 3],
-//   ])
-// );
+console.log(
+  solution(33, [
+    [2, 12],
+    [8, 4],
+    [6, 6],
+    [6, 7],
+  ])
+);
