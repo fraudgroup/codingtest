@@ -17,7 +17,7 @@ function solution(m, product) {
       }
 
       if (j === prices.length - 1) {
-        return j + 1;
+        return prices.length;
       }
     }
   }
