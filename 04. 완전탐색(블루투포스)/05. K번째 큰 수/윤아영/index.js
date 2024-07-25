@@ -1,6 +1,7 @@
 function solution(n, k, card) {
-  card.sort((a, b) => b - a);
   let order = 0;
+
+  card.sort((a, b) => b - a);
 
   for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
