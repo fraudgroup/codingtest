@@ -1,13 +1,17 @@
 function solution(n, k, card) {
-  let order = 0;
+  const sums = new Set();
 
   card.sort((a, b) => b - a);
 
   for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
       for (let l = j + 1; l < n; l++) {
-        if (++order === k) {
-          return card[i] + card[j] + card[l];
+        const sum = card[i] + card[j] + card[l];
+
+        sums.add(sum);
+
+        if (sums.size === k) {
+          return sum;
         }
       }
     }
