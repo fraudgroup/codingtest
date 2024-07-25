@@ -25,13 +25,13 @@ function solution(n, k, card) {
   const sortedCardList = card.sort((a, b) => b - a);
   const uniqueCardSumSet = new Set();
 
-  for (let i = 0; i < sortedCardList.length; i++) {
+  for (let i = 0; i < n; i++) {
     const first = sortedCardList[i];
 
-    for (let j = i + 1; j < sortedCardList.length; j++) {
+    for (let j = i + 1; j < n; j++) {
       const second = sortedCardList[j];
 
-      for (let k = j + 1; k < sortedCardList.length; k++) {
+      for (let k = j + 1; k < n; k++) {
         const third = sortedCardList[k];
 
         const sum = first + second + third;
@@ -50,4 +50,4 @@ function solution(n, k, card) {
 let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42]; // 143
 let arr2 = [10, 10, 9, 9, 8, 8]; // 27
 console.log(solution(10, 3, arr));
-console.log(solution(4, 3, arr2));
+console.log(solution(6, 3, arr2));
