@@ -51,3 +51,45 @@ let arr = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42]; // 143
 let arr2 = [10, 10, 9, 9, 8, 8]; // 27
 console.log(solution(10, 3, arr));
 console.log(solution(6, 3, arr2));
+
+/*
+✅문제 풀이 날짜: 2024-07-25
+
+💡알고리즘 설계
+  - 카드를 내림차순 정렬한다.
+  - 카드를 3장 뽑아 합한 값을 담을 Set 자료구조 변수에 담는다.
+  - Set의 size가 k와 같을 때 합한 값을 출력한다.
+  - 반복문을 다 돌았다면 -1을 출력한다.
+*/
+function solution2(n, k, card) {
+  let answer;
+  const NOT_FOUND = -1;
+
+  const sortedCardList = card.sort((a, b) => b - a);
+  const uniqueCardSumSet = new Set();
+
+  for (let i = 0; i < n; i++) {
+    const first = sortedCardList[i];
+
+    for (let j = i + 1; j < n; j++) {
+      const second = sortedCardList[j];
+
+      for (let l = j + 1; l < n; l++) {
+        const third = sortedCardList[l];
+
+        const sum = first + second + third;
+        uniqueCardSumSet.add(sum);
+
+        if (uniqueCardSumSet.size === k) {
+          return sum;
+        }
+      }
+    }
+  }
+
+  answer = NOT_FOUND;
+
+  return answer;
+}
+console.log(solution2(10, 3, arr));
+console.log(solution2(6, 3, arr2));
