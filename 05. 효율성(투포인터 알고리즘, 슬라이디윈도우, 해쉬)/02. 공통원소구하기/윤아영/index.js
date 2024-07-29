@@ -1,7 +1,7 @@
 function solution(arr1, arr2) {
-  let answer = [];
+  const set = new Set(arr1);
 
-  return answer;
+  return arr2.filter((v) => set.has(v)).sort((a, b) => a - b);
 }
 
 let a = [1, 3, 9, 5, 2];
