@@ -12,10 +12,10 @@ function solution(k, arr) {
     }
 
     if (pointer2 - pointer1 === k) {
+      console.log(pointer1, pointer2, answer);
       answer.push(sum);
     }
   }
-
   return Math.max(...answer);
 }
 
