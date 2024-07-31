@@ -5,9 +5,8 @@ function solution(a, b) {
     if (a === b) return "D";
     if ((a === 1 && b === 3) || (a === 2 && b === 1) || (a === 3 && b === 2)) {
       return "A";
-    } else {
-      return "B";
     }
+    return "B";
   }
 
   for (let i = 0; i < a.length; i++) {
