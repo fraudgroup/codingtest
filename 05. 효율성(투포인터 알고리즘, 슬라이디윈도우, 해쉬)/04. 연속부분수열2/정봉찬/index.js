@@ -51,4 +51,39 @@ function solution(m, arr) {
 }
 
 let a = [1, 3, 1, 2, 3];
-console.log(solution(5, a));
+// console.log(solution(5, a));
+
+/*
+✅문제 풀이 날짜: 2024-08-04
+
+💡알고리즘 설계
+  - 시작 포인터 변수 startPointer를 0으로 초기화 선언한다.
+  - 합 변수 sum을 0으로 초기화 선언한다.
+  - endPointer를 0으로 시작하는 for 반복문을 arr의 길이 만큼 반복한다. 이때 증감식은 endPointer + 1 한다.
+  - 반복문이 시작되면 sum에 arr[endPointer]를 더한다.
+  - while 문으로 sum > m && startPointer < endPointer 일 때 sum - arr[startPointer++]을 반복한다.
+  - while 문이 종료되면 if 문으로 sum <= m 일 때 answer를 answer + endPointer - startPointer + 1 한다.
+
+✅ 복수 성공
+*/
+
+function solution2(m, arr) {
+  let answer = 0;
+
+  let startPointer = 0;
+  let sum = 0;
+
+  for (let endPointer = 0; endPointer < arr.length; endPointer++) {
+    sum += arr[endPointer];
+
+    while (sum > m && startPointer < endPointer) {
+      sum -= arr[startPointer++];
+    }
+
+    answer += endPointer - startPointer + 1;
+  }
+
+  return answer;
+}
+
+console.log(solution2(5, a));
