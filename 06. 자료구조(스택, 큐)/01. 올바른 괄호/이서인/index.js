@@ -1,8 +1,20 @@
 function solution(s) {
-  let answer = 'YES';
+  let stack = [];
 
-  return answer;
+  for (const el of s) {
+    if (el === "(") {
+      return stack.push(1);
+    } else if (el === ")") {
+      if (stack.length === 0) {
+        return "NO";
+      }
+      stack.pop();
+    }
+  }
+
+  return stack.length === 0 ? "YES" : "NO";
 }
 
-let a = '(()(()))(()';
-console.log(solution(a));
+let a = "(()(()))(()";
+let b = ")";
+console.log(solution(b));
