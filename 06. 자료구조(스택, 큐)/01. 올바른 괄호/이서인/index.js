@@ -3,8 +3,8 @@ function solution(s) {
 
   for (const el of s) {
     if (el === "(") {
-      return stack.push(1);
-    } else if (el === ")") {
+      stack.push(el);
+    } else {
       if (stack.length === 0) {
         return "NO";
       }
@@ -16,5 +16,5 @@ function solution(s) {
 }
 
 let a = "(()(()))(()";
-let b = ")";
+let b = "()";
 console.log(solution(b));
