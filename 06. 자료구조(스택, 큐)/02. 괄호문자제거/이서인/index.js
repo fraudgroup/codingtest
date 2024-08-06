@@ -13,7 +13,7 @@ function solution(s) {
       stack.push(el);
     }
   }
-  return stack;
+  return stack.join("");
 }
 
 let str = "(A(BC)D)EF(G(H)(IJ)K)LM(N)";
