@@ -1,5 +1,26 @@
 function solution(board, moves) {
+  const basket = [];
   let answer = 0;
+
+  for (const move of moves) {
+    for (let i = 0; i < board.length; i++) {
+      const currentItem = board[i][move - 1];
+
+      if (currentItem === 0) {
+        continue;
+      }
+
+      if (basket[basket.length - 1] === currentItem) {
+        basket.pop();
+        answer += 2;
+      } else {
+        basket.push(currentItem);
+      }
+
+      board[i][move - 1] = 0;
+      break;
+    }
+  }
 
   return answer;
 }
