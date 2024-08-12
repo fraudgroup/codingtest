@@ -22,20 +22,17 @@ function solution(arr) {
   let answer = arr;
 
   for (let i = 0; i < answer.length - 1; i++) {
-    let minValue = answer[i];
     let minIndex = i;
 
     for (let j = i + 1; j < answer.length; j++) {
-      if (minValue <= answer[j]) {
+      if (answer[j] >= answer[minIndex]) {
         continue;
       }
 
-      minValue = answer[j];
       minIndex = j;
     }
 
-    answer[minIndex] = answer[i];
-    answer[i] = minValue;
+    [answer[i], answer[minIndex]] = [answer[minIndex], answer[i]];
   }
 
   return answer;
