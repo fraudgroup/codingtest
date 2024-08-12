@@ -1,9 +1,20 @@
 function solution(need, plan) {
-  let answer = 'YES';
+  let answer = [];
+  let needIndex = 0;
+  const isNeedCourse = (el) => el === need[needIndex];
 
-  return answer;
+  [...plan].forEach((el) => {
+    if (isNeedCourse(el)) {
+      answer.push(needIndex);
+      needIndex++;
+    }
+  });
+  return answer.length === need.length &&
+    answer.every((val, index) => val === index)
+    ? "YES"
+    : "NO";
 }
 
-let a = 'CBA';
-let b = 'CBDAGE';
+let a = "CBA";
+let b = "CBDGAE";
 console.log(solution(a, b));
