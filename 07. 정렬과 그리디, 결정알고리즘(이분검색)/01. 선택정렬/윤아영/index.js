@@ -1,5 +1,16 @@
 function solution(arr) {
-  let answer = arr;
+  for (let i = 0; i < arr.length; i++) {
+    const minValue = Math.min(...arr.slice(i + 1));
+
+    if (arr[i] <= minValue) {
+      continue;
+    }
+
+    const index = arr.indexOf(minValue);
+
+    arr[index] = arr[i];
+    arr[i] = minValue;
+  }
 
   return answer;
 }
