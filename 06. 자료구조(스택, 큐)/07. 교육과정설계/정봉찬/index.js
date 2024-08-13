@@ -21,15 +21,15 @@
 
 function solution(need, plan) {
   let answer = 'YES';
-  const hash = new Map();
+  const hash = new Set();
   const myPlan = [];
 
   for (const subject of need) {
-    hash.set(subject, 1);
+    hash.add(subject);
   }
 
   for (const subject of plan) {
-    if (!hash.get(subject)) {
+    if (!hash.has(subject)) {
       continue;
     }
 
