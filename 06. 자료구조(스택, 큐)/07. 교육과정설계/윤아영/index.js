@@ -1,9 +1,22 @@
 function solution(need, plan) {
-  let answer = 'YES';
+  const needArray = [...need];
+  const planArray = [...plan];
 
-  return answer;
+  for (let i = 0; i < plan.length; i++) {
+    if (!needArray.length) {
+      return "YES";
+    }
+
+    if (planArray.shift() !== needArray[0]) {
+      continue;
+    }
+
+    needArray.shift();
+  }
+
+  return needArray.length ? "NO" : "YES";
 }
 
-let a = 'CBA';
-let b = 'CBDAGE';
+let a = "CBA";
+let b = "CBDAGE";
 console.log(solution(a, b));
