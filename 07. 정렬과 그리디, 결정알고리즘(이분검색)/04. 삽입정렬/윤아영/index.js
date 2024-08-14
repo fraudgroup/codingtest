@@ -1,15 +1,12 @@
 function solution(arr) {
   for (let i = 1; i < arr.length; i++) {
-    let pointer = i;
-
-    for (let j = i - 1; j >= 0; j--) {
-      if (arr[pointer] >= arr[j]) {
+    for (let j = i; j > 0; j--) {
+      if (arr[j] >= arr[j - 1]) {
         break;
       }
 
-      if (arr[pointer] < arr[j]) {
-        [arr[j], arr[pointer]] = [arr[pointer], arr[j]];
-        pointer -= 1;
+      if (arr[j] < arr[j - 1]) {
+        [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
       }
     }
   }
