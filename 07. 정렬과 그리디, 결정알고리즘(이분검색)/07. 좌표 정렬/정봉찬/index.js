@@ -110,7 +110,7 @@ console.log(solution2(arr)); // [[1, 2], [1, 3], [2, 5], [2, 7], [3, 6]]
   - 중첩 반복문이 종료되면 i와 minIndex의 값을 교체한다.
 */
 
-function solution4(arr) {
+function solution3(arr) {
   let answer = arr;
 
   for (let i = 0; i < arr.length - 1; i++) {
@@ -134,7 +134,7 @@ function solution4(arr) {
   return answer;
 }
 
-console.log(solution4(arr)); // [[1, 2], [1, 3], [2, 5], [2, 7], [3, 6]]
+console.log(solution3(arr)); // [[1, 2], [1, 3], [2, 5], [2, 7], [3, 6]]
 
 /*
 ✅문제 제목: 좌표 정렬
