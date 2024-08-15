@@ -75,7 +75,7 @@ function solution2(arr) {
         continue;
       }
 
-      if (arr[j][1] < [j + 1][1]) {
+      if (arr[j][1] < arr[j + 1][1]) {
         continue;
       }
 
