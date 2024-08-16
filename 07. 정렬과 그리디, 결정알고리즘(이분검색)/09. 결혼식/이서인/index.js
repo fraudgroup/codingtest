@@ -7,7 +7,7 @@ function solution(times) {
     a[0] - b[0];
   });
 
-  times.forEach((time) => {
+  sortedTimes.forEach((time) => {
     const [start, end] = time;
     if (start >= preEnd) {
       currentPeople = 1;
