@@ -1,5 +1,22 @@
 function solution(times) {
-  let answer = Number.MIN_SAFE_INTEGER;
+  let answer = [];
+  let preEnd = 0;
+  let currentPeople = 0;
+
+  const sortedTimes = times.sort((a, b) => {
+    a[0] - b[0];
+  });
+
+  times.forEach((time) => {
+    const [start, end] = time;
+    if (start >= preEnd) {
+      currentPeople = 1;
+    } else {
+      currentPeople += 1;
+    }
+    preEnd = end;
+    answer = Math.max(answer, currentPeople);
+  });
 
   return answer;
 }
@@ -10,5 +27,6 @@ let arr = [
   [15, 20],
   [20, 30],
   [5, 14],
+  [13, 18],
 ];
 console.log(solution(arr));
