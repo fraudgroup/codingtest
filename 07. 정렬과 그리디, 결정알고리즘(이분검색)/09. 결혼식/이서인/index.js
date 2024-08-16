@@ -1,5 +1,5 @@
 function solution(times) {
-  let answer = [];
+  let answer = 0;
   let preEnd = 0;
   let currentPeople = 0;
 
