@@ -18,8 +18,40 @@
   - 우선 풀이 보고 학습 후 일주일 뒤에 복수하자.
 */
 
+function getCount(list, max) {
+  let count = 1;
+  let sum = 0;
+
+  for (item of list) {
+    if (sum + item > max) {
+      count++;
+      sum = item;
+      continue;
+    }
+
+    sum += item;
+  }
+
+  return count;
+}
+
 function solution(m, songs) {
   let answer;
+
+  let start = Math.max(...songs);
+  let end = songs.reduce((pre, cur) => pre + cur, 0);
+
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+
+    if (getCount(songs, mid) <= m) {
+      answer = mid;
+      end = mid - 1;
+      continue;
+    }
+
+    start = mid + 1;
+  }
 
   return answer;
 }
