@@ -1,7 +1,7 @@
 function solution(m, songs) {
   let answer = 0;
   let start = Math.max(...songs);
-  let end = arr.reduce((a, b) => a + b, 0);
+  let end = songs.reduce((a, b) => a + b, 0);
   let DVD = [];
 
   while (start <= end) {
