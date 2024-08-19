@@ -55,9 +55,23 @@ function solution(n) {
   }
   postorder(n);
 
+  // 중위 순회
+  let inorderAnswer = '';
+  function inorder(node) {
+    if (node > 7) {
+      return;
+    }
+
+    inorder(node * 2);
+    inorderAnswer += node + ' ';
+    inorder(node * 2 + 1);
+  }
+  inorder(n);
+
   answer = `
   전위순회: ${preorderAnswer}
-  후위순회: ${postorderAnswer}`;
+  후위순회: ${postorderAnswer}
+  중위순회: ${inorderAnswer}`;
 
   return answer;
 }
