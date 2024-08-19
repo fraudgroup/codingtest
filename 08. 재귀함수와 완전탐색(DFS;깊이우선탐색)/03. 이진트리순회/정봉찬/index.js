@@ -27,21 +27,37 @@
 function solution(n) {
   let answer = '';
 
+  // 전위 순회
   let preorderAnswer = '';
   function preorder(node) {
     if (node > 7) {
       return;
     }
 
-    preorderAnswer += node;
+    preorderAnswer += node + ' ';
 
     preorder(node * 2);
     preorder(node * 2 + 1);
   }
-
   preorder(n);
 
-  answer = `전위순회: ${preorderAnswer}`;
+  // 후위 순회
+  let postorderAnswer = '';
+  function postorder(node) {
+    if (node > 7) {
+      return;
+    }
+
+    postorder(node * 2);
+    postorder(node * 2 + 1);
+
+    postorderAnswer += node + ' ';
+  }
+  postorder(n);
+
+  answer = `
+  전위순회: ${preorderAnswer}
+  후위순회: ${postorderAnswer}`;
 
   return answer;
 }
