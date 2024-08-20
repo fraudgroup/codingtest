@@ -3,9 +3,9 @@ function solution(times) {
   let preEnd = 0;
   let currentPeople = 0;
 
-  const sortedTimes = times.sort((a, b) => a[0] - b[0]);
+  times.sort((a, b) => a[1] - b[1] || a[0] - b[0]);
 
-  sortedTimes.forEach((time) => {
+  times.forEach((time) => {
     const [start, end] = time;
     if (start >= preEnd - 1) {
       currentPeople = 1;
@@ -25,5 +25,6 @@ let arr = [
   [15, 20],
   [20, 30],
   [5, 14],
+  [8, 13]
 ];
 console.log(solution(arr));
