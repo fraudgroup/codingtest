@@ -6,7 +6,7 @@ function solution(n, arr) {
     let sum = el
       .toString()
       .split("")
-      .reduce((acc, el) => acc + +el, 0);
+      .reduce((acc, el) => acc + Math.floor(+el), 0);
     array.push(sum);
   });
 
