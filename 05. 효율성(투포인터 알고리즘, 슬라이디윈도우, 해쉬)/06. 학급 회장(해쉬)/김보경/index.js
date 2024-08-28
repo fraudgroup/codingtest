@@ -1,19 +1,19 @@
 function solution(s) {
   let answer;
-  let results = {};
-  let maxValue = 0;
+  let countResults = {};
 
   [...s].forEach((el) => {
-    if (el in results) {
-      results[el]++;
+    if (el in countResults) {
+      countResults[el]++;
     } else {
-      results[el] = 1;
+      countResults[el] = 1;
     }
   });
 
-  for (let key in results) {
-    if (results[key] > maxValue) {
-      maxValue = results[key];
+  let maxValue = 0;
+  for (let key in countResults) {
+    if (countResults[key] > maxValue) {
+      maxValue = countResults[key];
       answer = key;
     }
   }
