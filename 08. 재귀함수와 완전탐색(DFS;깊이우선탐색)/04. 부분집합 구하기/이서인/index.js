@@ -3,9 +3,7 @@ function solution(n) {
 
   function DFS(el, part = "") {
     if (el > n) return part && answer.push(part);
-
     DFS(el + 1, part + el);
-
     DFS(el + 1, part);
   }
   DFS(1);
