@@ -1,19 +1,18 @@
 function solution(m, arr) {
   let answer = Number.MAX_SAFE_INTEGER;
 
-  function DFS(number, coins = []) {
-    let price = coins.reduce((a, b) => a + b, 0);
-    if (price > m) return;
-    if (price === m) {
-      answer = Math.min(answer, coins.length)
-      return;
+  function DFS(currentSum, index) {
+    if (currentSum > m) return;
+    if (currentSum === m) {
+      answer = Math.min(answer, index);
+      return
     }
-    if (number > arr.length) return;
 
-    DFS(number, [...coins, arr[number]])    
-    DFS(number + 1, coins)    
+    for (let i = 0; i < arr.length; i++) {
+      DFS(currentSum + arr[i], index + 1);
+    }
   }
-  DFS(0, [])
+  DFS(0, 0)
   return answer;
 }
 
