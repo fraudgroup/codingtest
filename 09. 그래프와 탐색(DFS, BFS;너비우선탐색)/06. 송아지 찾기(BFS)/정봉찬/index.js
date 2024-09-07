@@ -28,15 +28,11 @@ function solution(s, e) {
   let answer = 0;
 
   const queue = [];
-  const ch = [];
+  const ch = Array.from({ length: 10001 }, () => 0);
 
   queue.push([s, 0]);
   while (queue.length) {
     const [current, L] = queue.shift();
-
-    if (ch[current]) {
-      continue;
-    }
 
     if (current === e) {
       answer = L;
@@ -46,6 +42,9 @@ function solution(s, e) {
     ch[current] = 1;
 
     for (const next of [current + 1, current - 1, current + 5]) {
+      if (next < 1 || next > 10000 || ch[next]) {
+        continue;
+      }
       queue.push([next, L + 1]);
     }
   }
