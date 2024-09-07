@@ -92,3 +92,62 @@ let arr = [
 ];
 
 console.log(solution(arr)); // 8
+
+/*
+✅문제 제목: 미로탐색
+
+✅문제 유형: DFS
+
+✅문제 풀이 날짜: 2024-09-07
+
+💡문제 분석 요약
+  - 7*7 격자판 미로를 탈출하는 경로의 가지수를 출력한다.
+  - 출발점은 (1, 1) 좌표, 도착점은 (7, 7) 좌표.
+  - 격자판의 1은 벽, 0은 통로.
+  - 상하좌우로만 움직인다.
+
+💡알고리즘 설계
+  - ⭐ dx, dy 풀이
+  - 상, 하, 좌, 우로 이동할 수 있는 dx, dy 배열을 선언한다.
+  - x 좌표와 y 좌표를 받는 재귀함수를 선언한다.
+  - board의 0, 0(출발점)은 방문한 표시로 1을 할당한다.
+  - 첫 재귀함수의 호출에서 0, 0(출발점)을 인수로 전달한다.
+  - 매개변수로 받은 x, y 좌표가 6, 6에 도달하면 answer를 1 더하고 함수를 종료한다.
+  - dx의 길이만큼 반복문 돌면서 다음 좌표를 계산해 방문처리하고 재귀함수를 호출한다.
+  - 재귀함수를 호출하고 방문처리를 다시 제거한다.
+*/
+
+function solution2(board) {
+  let answer = 0;
+
+  const len = board.length;
+  const dx = [0, 1, 0, -1];
+  const dy = [1, 0, -1, 0];
+
+  function DFS(x, y) {
+    if (x === len - 1 && y === len - 1) {
+      answer++;
+      return;
+    }
+
+    for (let i = 0; i < dx.length; i++) {
+      const _x = x + dx[i];
+      const _y = y + dy[i];
+
+      if (_x < 0 || _x >= len || _y < 0 || _y >= len || board[_x][_y] !== 0) {
+        continue;
+      }
+
+      board[_x][_y] = 1;
+      DFS(_x, _y);
+      board[_x][_y] = 0;
+    }
+  }
+
+  board[0][0] = 1;
+  DFS(0, 0);
+
+  return answer;
+}
+
+console.log(solution2(arr)); // 8
