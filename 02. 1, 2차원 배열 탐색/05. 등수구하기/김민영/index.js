@@ -1,12 +1,7 @@
 function solution(arr) {
   let sortArr = [...arr].sort((a, b) => b - a);
-  let answer = [];
 
-  for (i = 0; i < arr.length; i++) {
-    answer.push(sortArr.indexOf(arr[i]) + 1);
-  }
-
-  return answer;
+  return arr.map((num) => sortArr.indexOf(num) + 1)
 }
 
 let arr = [87, 89, 92, 100, 76];
