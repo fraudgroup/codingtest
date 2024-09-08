@@ -16,6 +16,9 @@
   - arr을 길이만큼 i = 0부터 반복문을 돈다.
   - i번째 요소의 제한 시간을 j의 시작점으로 m까지 반복문을 돈다.
   - dy[j]에 dy[j]의 값과 (dy[j - i번째 요소의 제한 시간] + i번째 요소의 점수) 중에서 큰 값을 할당한다.
+
+❌오답
+  - 앞에서부터 반복문을 돌면 같은 문제를 중복으로 풀게된다.
 */
 
 function solution(m, arr) {
@@ -45,3 +48,41 @@ let arr = [
   [7, 4],
 ];
 console.log(solution(20, arr)); // 41
+
+/*
+✅문제 제목: 최대점수 구하기
+
+✅문제 유형: DP
+
+✅문제 풀이 날짜: 2024-09-09
+
+💡문제 분석 요약
+  - N개의 문제가 있다. 각 문제는 점수와 푸는데 걸리는 시간이 주어진다.
+  - 제한시간 M안에 N개의 문제 중 최대점수를 얻을 수 있도록 한다.
+  - 문제의 개수 N(1<=N<=20), 제한시간 M(10<=M<=300)
+
+💡알고리즘 설계
+  - 제한 시간 + 1만큼의 dy 배열을 만들고 각 요소를 0으로 초기화한다.
+  - arr을 길이만큼 i = 0부터 반복문을 돈다.
+  - j는 m부터 i번째 요소의 시간까지 거꾸로 반복문을 돈다.
+  - dy[j]에 dy[j]의 값과 (dy[j - i번째 요소의 제한 시간] + i번째 요소의 점수) 중에서 큰 값을 할당한다.
+*/
+
+function solution2(m, arr) {
+  let answer = 0;
+
+  const dy = Array.from({ length: m + 1 }, () => 0);
+
+  for (let i = 0; i < arr.length; i++) {
+    const [score, time] = arr[i];
+    for (let j = m; j >= time; j--) {
+      dy[j] = Math.max(dy[j], dy[j - time] + score);
+    }
+  }
+
+  answer = dy[m];
+
+  return answer;
+}
+
+console.log(solution2(20, arr)); // 41
