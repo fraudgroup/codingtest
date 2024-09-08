@@ -36,11 +36,11 @@ function solution(board) {
         continue;
       }
 
+      board[i][j] = 0;
       queue.push([i, j]);
       answer++;
       while (queue.length) {
         const [y, x] = queue.shift();
-        board[y][x] = 0;
 
         for (let k = 0; k < dx.length; k++) {
           const nx = x + dx[k];
@@ -50,6 +50,7 @@ function solution(board) {
             continue;
           }
 
+          board[ny][nx] = 0;
           queue.push([ny, nx]);
         }
       }
