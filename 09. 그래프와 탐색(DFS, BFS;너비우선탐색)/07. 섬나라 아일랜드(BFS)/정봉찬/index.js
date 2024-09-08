@@ -18,7 +18,7 @@
   - 방문할 수 없으면 continue한다.
   - 그 외에는 queue에 [y, x]의 좌표를 push하고 answer를 1더한다.
   - queue의 길이만큼 while문을 돈다.
-  - queue에서 [y, x] 좌표를 꺼내고 방문처리한다.
+  - queue에 넣을 때 항상 방문처리한다.
   - dx의 길이만큼 반복문 돌면서 방문 가능한 섬을 queue에 push한다.
 */
 
