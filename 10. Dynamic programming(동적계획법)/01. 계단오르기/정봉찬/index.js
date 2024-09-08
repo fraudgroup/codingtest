@@ -58,7 +58,7 @@ console.log(solution(7)); // 21
   - n번 계단을 가는 경우는 n - 2번에서 가는 경우와 n - 1번에서 가는 경우.
 */
 
-function solution(n) {
+function solution2(n) {
   let answer = 0;
 
   const dy = Array.from({ length: n + 1 }, () => 0);
@@ -75,4 +75,4 @@ function solution(n) {
   return answer;
 }
 
-console.log(solution(7)); // 21
+console.log(solution2(7)); // 21
