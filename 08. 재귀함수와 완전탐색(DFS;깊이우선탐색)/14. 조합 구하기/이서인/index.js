@@ -1,9 +1,9 @@
 function solution(n, m) {
-  let elements = new Set()
+  let elements = []
   
   function DFS(el, part = "") {
     if (part.length === m) {
-      elements.add(part);
+      elements.push(part);
       return;
     }
     if (el > n) return;
@@ -14,7 +14,7 @@ function solution(n, m) {
   
   DFS(1);
 
-  return [...elements, [...elements].length].join("\n")
+  return [...elements, elements.length].join("\n")
 }
 
 console.log(solution(4, 2));
