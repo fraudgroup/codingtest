@@ -1,21 +1,18 @@
 function solution(c, arr) {
   let answer = Number.MIN_SAFE_INTEGER;
 
-  const temp = (values, index) => {
-    const sum = values.reduce((acc, cur) => acc + cur, 0);
-
-    if (sum > c) {
-      return;
+  const DFS= (index, path) => {
+    const sum = path.reduce((acc, cur) => acc + cur, 0);
+    if (sum <= c) {
+      answer = Math.max(answer, sum);
     }
 
-    answer = Math.max(answer, sum);
-
-    for (let i = index; i < arr.length; i++) {
-      temp([...values, arr[i]], i + 1);
+    for(let i = index; i < arr.length; i++) {
+      DFS(i + 1, path.concat(arr[i]))
     }
-  };
+  }
 
-  temp([], 0);
+  DFS(0, []);
 
   return answer;
 }
