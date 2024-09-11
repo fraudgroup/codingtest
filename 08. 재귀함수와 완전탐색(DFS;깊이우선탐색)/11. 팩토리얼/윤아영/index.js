@@ -1,7 +1,7 @@
 function solution(n) {
-  let answer;
+  if (n === 1) return 1;
 
-  return answer;
+  return n * solution(n - 1);
 }
 
 console.log(solution(5));
