@@ -38,6 +38,33 @@ function solution(str1, str2) {
   return str1Result.includes(str2Result) ? answer : "NO";
 }
 
+// 다른 풀이 추가
+const solution2 = (str1, str2) => {
+  let answer = "YES";
+  let aTable = new Map();
+
+  [...str1].forEach((el) => {
+    if (aTable.has(el)) {
+      aTable.set(el, aTable.get(el) + 1);
+    } else {
+      aTable.set(el, 1);
+    }
+  });
+
+  [...str2].forEach((el) => {
+    if (aTable.has(el)) {
+      aTable.set(el, aTable.get(el) - 1);
+    }
+  });
+
+  for (let [_, val] of aTable) {
+    val > 0 ? (answer = "NO") : answer;
+  }
+
+  return answer;
+};
+
 let a = "AbaAeCe";
 let b = "baeeACA";
 console.log(solution(a, b));
+console.log(solution2(a, b));
