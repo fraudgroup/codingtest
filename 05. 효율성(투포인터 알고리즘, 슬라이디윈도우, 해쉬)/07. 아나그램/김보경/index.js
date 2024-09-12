@@ -52,9 +52,9 @@ const solution2 = (str1, str2) => {
   });
 
   [...str2].forEach((el) => {
-    if (aTable.has(el)) {
-      aTable.set(el, aTable.get(el) - 1);
-    }
+    if (!aTable.has(el) || aTable.get(el) === 0) return "NO";
+
+    aTable.set(el, aTable.get(el) - 1);
   });
 
   for (let [_, val] of aTable) {
