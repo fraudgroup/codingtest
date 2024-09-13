@@ -1,7 +1,5 @@
 function solution(s) {
-  let answer = 'YES';
-
-  return answer;
+  return s.toLowerCase() === s.toLowerCase().split('').reverse().join('') ? 'YES' : 'NO';
 }
 
 let str = 'goooG';
