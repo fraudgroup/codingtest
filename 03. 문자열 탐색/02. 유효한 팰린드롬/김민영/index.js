@@ -1,7 +1,11 @@
 function solution(s) {
-  let answer = 'YES';
+  const cleanedString = s
+    .replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/g, '')
+    .replace(/[0-9]/g, '')
+    .replace(/\s+/g, '')
+    .toLowerCase();
 
-  return answer;
+  return cleanedString === cleanedString.split('').reverse().join('') ? 'YES' : 'NO';
 }
 
 let str = 'found7, time: study; Yduts; emit, 7Dnuof';
