@@ -1,7 +1,9 @@
 function solution(s) {
-  let answer = 'YES';
+  const cleanedString = s
+    .toLowerCase()
+    .replace(/[^a-z]/g, '')
 
-  return answer;
+  return cleanedString === [...cleanedString].reverse().join('') ? 'YES' : 'NO';
 }
 
 let str = 'found7, time: study; Yduts; emit, 7Dnuof';
