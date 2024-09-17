@@ -1,7 +1,5 @@
 function solution(str) {
-  let answer = '';
-
-  return answer;
+  return +(str.replaceAll(/\D/g, ''));
 }
 
 let str = 'g0en2T0s8eSoft';
