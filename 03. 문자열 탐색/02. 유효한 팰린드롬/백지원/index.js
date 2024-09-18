@@ -4,7 +4,7 @@ function solution(s) {
   s = s.toLowerCase().replace(/[^a-z]/g, "");
   let n = s.length;
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n / 2; i++) {
     if (s[i] !== s[n - i - 1]) answer = "NO";
     break;
   }
