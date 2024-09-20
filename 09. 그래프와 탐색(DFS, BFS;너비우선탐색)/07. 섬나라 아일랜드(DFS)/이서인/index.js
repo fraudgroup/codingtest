@@ -10,7 +10,7 @@ function solution(board) {
   [-1, -1],
   [-1, 1],
   [1, -1],
-    [1, 1]]
+  [1, 1]]
   
   function BFS(x, y) {
     let queue = [[x, y]];
