@@ -2,14 +2,16 @@ function solution(s) {
   let answer = '';
   let cnt = 1;
 
-  for (i = 0; i < s.length; i++) {
+  for (i = 1; i <= s.length; i++) {
     if (s[i] === s[i - 1]) {
       cnt++;
     } else {
+      answer += s[i - 1];
+
       if (cnt > 1) {
         answer += cnt;
       }
-      answer += s[i];
+
       cnt = 1;
     }
   }
@@ -17,5 +19,5 @@ function solution(s) {
   return answer;
 }
 
-let str = 'KKHSSSSSSSE';
+let str = 'KKHSSSSSSSEKKK';
 console.log(solution(str));
