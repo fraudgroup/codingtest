@@ -1,6 +1,25 @@
 function solution(arr) {
   let answer = [];
 
+  for (num of arr) {
+    let x = +(String(num).split('').reverse().join(''))
+    let isPrime = true;
+
+    if (x === 1) {
+      isPrime = false;
+    }
+
+    for (i = 2; i <= Math.sqrt(x); i++) {
+      if (x % i === 0) {
+        isPrime = false;
+      }
+    }
+
+    if (isPrime) {
+      answer.push(x);
+    }
+  }
+
   return answer;
 }
 
