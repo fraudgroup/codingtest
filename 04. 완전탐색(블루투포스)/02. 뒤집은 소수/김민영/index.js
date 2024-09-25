@@ -6,12 +6,13 @@ function solution(arr) {
     let isPrime = true;
 
     if (x === 1) {
-      isPrime = false;
+      continue;
     }
 
     for (i = 2; i <= Math.sqrt(x); i++) {
       if (x % i === 0) {
         isPrime = false;
+        break;
       }
     }
 
