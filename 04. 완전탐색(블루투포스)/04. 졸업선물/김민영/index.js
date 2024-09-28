@@ -15,9 +15,9 @@ function solution(m, product) {
 
       if (money < 0) {
         break;
-      } else {
-        cnt += 1;
       }
+
+      cnt += 1;
     }
 
     answer = Math.max(answer, cnt);
