@@ -1,8 +1,5 @@
 function solution(m, arr) {
   let answer = 0;
-
-  // [...arr].map(num => num <= m && answer++);
-
   let lP = 0;
   let sum = 0;
 
@@ -14,7 +11,6 @@ function solution(m, arr) {
       lP++;
     }
 
-    // answer++;
     answer += (i - lP + 1);
   }
 
