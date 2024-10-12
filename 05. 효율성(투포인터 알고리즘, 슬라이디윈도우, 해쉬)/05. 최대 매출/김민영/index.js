@@ -1,5 +1,17 @@
 function solution(k, arr) {
-  let answer;
+  let answer = 0;
+  let sum = 0;
+
+  for (i = 0; i < k; i++) {
+    sum += arr[i];
+  }
+
+  answer = sum;
+
+  for (i = k; i < arr.length; i++) {
+    sum = sum + arr[i] - arr[i - k];
+    answer = Math.max(answer, sum);
+  }
 
   return answer;
 }
