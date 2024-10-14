@@ -14,11 +14,9 @@ function solution(m, product) {
 
   // 앞에서부터 더해서, 예산을 넘었을 때는 count 하지 않은 채로 이전 count 값까지 return
   for (let i = 0; i < array.length; i++) {
+    if (price + array[i] > m) break;
     price += array[i];
-
-    if (price < m) {
-      count++;
-    }
+    count++;
   }
   return count;
 }
