@@ -1,6 +1,7 @@
 function solution(arr1, arr2) {
   let answer = [];
-
+  const newArr = arr1.concat(arr2).sort((a, b) => a - b);
+  console.log(newArr);
   return answer;
 }
 
