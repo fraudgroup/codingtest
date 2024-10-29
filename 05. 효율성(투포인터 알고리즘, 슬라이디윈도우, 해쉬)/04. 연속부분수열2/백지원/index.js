@@ -10,7 +10,7 @@ function solution(m, arr) {
       p1++;
     }
 
-    answer += p1 + 1;
+    answer += p2 - p1 + 1;
   }
   return answer;
 }
