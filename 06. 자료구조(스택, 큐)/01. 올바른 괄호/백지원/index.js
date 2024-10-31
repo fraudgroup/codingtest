@@ -1,8 +1,17 @@
 function solution(s) {
-  let answer = 'YES';
+  let stack = [];
 
-  return answer;
+  for (let char of s) {
+    if (char === "(") {
+      stack.push(char);
+    } else {
+      if (stack.length === 0) return "NO";
+      stack.pop();
+    }
+  }
+
+  return stack.length === 0 ? "YES" : "NO";
 }
 
-let a = '(()(()))(()';
+let a = "(()(()))(()";
 console.log(solution(a));
