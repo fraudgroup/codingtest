@@ -1,7 +1,13 @@
 function solution(need, plan) {
-  let answer = 'YES';
+  let x = [];
 
-  return answer;
+  for (i of plan) {
+    if (need.indexOf(i) !== -1) {
+      x.push(i)
+    }
+  }
+
+  return x.join('') === need ? 'YES' : 'NO'
 }
 
 let a = 'CBA';
