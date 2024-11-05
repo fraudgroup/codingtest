@@ -1,7 +1,7 @@
 function solution(arr) {
-  let answer = arr;
-
-  return answer;
+  const negative = arr.filter((num) => num < 0);
+  const positive = arr.filter((num) => num > 0);
+  return [...negative, ...positive];
 }
 
 let arr = [1, 2, 3, -3, -2, 5, 6, -6];
