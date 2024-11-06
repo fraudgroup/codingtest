@@ -1,7 +1,5 @@
 function solution(arr) {
-  let answer = arr;
-
-  return answer;
+  return arr.sort((a, b) => a - b);
 }
 
 let arr = [13, 5, 11, 7, 23, 15];
