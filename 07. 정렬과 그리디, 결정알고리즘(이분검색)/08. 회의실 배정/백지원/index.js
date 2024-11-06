@@ -1,6 +1,13 @@
 function solution(meeting) {
-  let answer = 0;
-
+  let answer = 1;
+  meeting.sort((a, b) => a[1] - b[1]);
+  let beforeTime = meeting[0][1];
+  for (let i = 1; i < meeting.length; i++) {
+    if (meeting[i][0] >= beforeTime) {
+      beforeTime = meeting[i][1];
+      answer++;
+    }
+  }
   return answer;
 }
 
