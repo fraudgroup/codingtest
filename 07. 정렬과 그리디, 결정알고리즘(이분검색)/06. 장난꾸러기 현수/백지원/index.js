@@ -1,6 +1,11 @@
 function solution(arr) {
   let answer = [];
-
+  const sortedArr = [...arr].sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== sortedArr[i]) {
+      answer.push(i + 1);
+    }
+  }
   return answer;
 }
 
