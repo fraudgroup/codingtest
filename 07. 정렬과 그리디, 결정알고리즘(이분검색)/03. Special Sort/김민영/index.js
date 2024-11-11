@@ -1,7 +1,12 @@
 function solution(arr) {
-  let answer = arr;
+  let negative = [];
+  let positive = [];
 
-  return answer;
+  for (num of arr) {
+    num < 0 ? negative.push(num) : positive.push(num);
+  }
+
+  return [...negative, ...positive];
 }
 
 let arr = [1, 2, 3, -3, -2, 5, 6, -6];
