@@ -1,7 +1,6 @@
 function solution(times) {
   let answer = Number.MIN_SAFE_INTEGER;
   let currentCnt = 0;
-  const sortTimes = times.sort((a, b) => a[0] - b[0]);
 
   // 친구가 도착하면 +1, 떠나면 -1
   // 모든 친구의 도착 시간과 떠나는 시간이 섞여서 저장됨
