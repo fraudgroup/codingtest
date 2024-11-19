@@ -1,6 +1,16 @@
 function solution(size, arr) {
   let answer = Array.from({ length: size }, () => 0);
 
+  for (work of arr) {
+    if (answer.includes(work)) {
+      answer.splice(answer.indexOf(work), 1)
+      answer.unshift(work);
+    } else {
+      answer.unshift(work);
+      answer.pop();
+    }
+  }
+
   return answer;
 }
 
