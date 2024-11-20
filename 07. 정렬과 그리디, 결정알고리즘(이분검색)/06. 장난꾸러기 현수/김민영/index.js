@@ -1,5 +1,12 @@
 function solution(arr) {
   let answer = [];
+  let sortedArr = [...arr].sort((a, b) => a - b);
+
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] !== sortedArr[i]) {
+      answer.push(i + 1);
+    }
+  }
 
   return answer;
 }
