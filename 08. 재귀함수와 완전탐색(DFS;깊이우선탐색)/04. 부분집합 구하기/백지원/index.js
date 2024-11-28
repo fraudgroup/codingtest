@@ -4,7 +4,7 @@ function solution(n) {
 
   // L: 현재 원소 번호
   function DFS(L) {
-    if (L === N + 1) {
+    if (L === n + 1) {
       // 모든 원소를 탐색한 경우
       answer.push([...subset]);
     } else {
