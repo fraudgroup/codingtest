@@ -5,7 +5,7 @@ function solution(c, stable) {
   let end = stable[stable.length - 1] - stable[0];
   let answer = 0;
 
-  const canPlaceHorses = (distance) => {
+  const isPlacementPossible = (distance) => {
     let count = 1;
     let lastPosition = stable[0];
 
@@ -24,7 +24,7 @@ function solution(c, stable) {
   while (start <= end) {
     let mid = Math.floor((start + end) / 2);
 
-    if (canPlaceHorses(mid)) {
+    if (isPlacementPossible(mid)) {
       answer = mid;
       start = mid + 1;
     } else {
