@@ -1,26 +1,10 @@
 function solution(arr1, arr2) {
-  const answer = []
-  // 정렬된 배열로 만들기
-  arr1.sort((a,b)=> a-b)
-  arr2.sort((a,b)=> a-b)
+  const setArr1 = new Set(arr1)
+  const setArr2 = new Set(arr2)
 
-  let i = 0;
-  let j = 0;
-
-
-  while(i < arr1.length && j < arr2.length){
-    if(arr1[i] === arr2[j]){
-      answer.push(arr1[i])
-      i++;
-      j++;
-    } else if (arr1[i] < arr2[j]){
-      i++;
-    } else {
-      j++;
-    }
-  }
-
-  return answer;
+  const common = [...setArr1].filter((n) => setArr2.has(n))
+ 
+  return common.sort((a,b)=> a -b);
 }
 
 let a = [1, 3, 9, 5, 2];
