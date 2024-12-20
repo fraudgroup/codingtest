@@ -1,7 +1,26 @@
 function solution(arr1, arr2) {
-  const answer = arr1.filter((n)=> arr2.includes(n))
-  
-  return answer.sort((a,b) => a-b);
+  const answer = []
+  // 정렬된 배열로 만들기
+  arr1.sort((a,b)=> a-b)
+  arr2.sort((a,b)=> a-b)
+
+  let i = 0;
+  let j = 0;
+
+
+  while(i < arr1.length && j < arr2.length){
+    if(arr1[i] === arr2[j]){
+      answer.push(arr1[i])
+      i++;
+      j++;
+    } else if (arr1[i] < arr2[j]){
+      i++;
+    } else {
+      j++;
+    }
+  }
+
+  return answer;
 }
 
 let a = [1, 3, 9, 5, 2];
