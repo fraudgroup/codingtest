@@ -2,11 +2,9 @@ function preorderTraversal(n) {
   let answer = '';
   function DFS(v) {
     if (v > 7) return;
-    else {
-      answer += v + ' ';
-      DFS(v * 2);
-      DFS(v * 2 + 1);
-    }
+    answer += v + ' ';
+    DFS(v * 2);
+    DFS(v * 2 + 1);
   }
   DFS(n);
   return answer;
@@ -16,11 +14,9 @@ function inorderTraversal(n) {
   let answer = '';
   function DFS(v) {
     if (v > 7) return;
-    else {
-      DFS(v * 2);
-      answer += v + ' ';
-      DFS(v * 2 + 1);
-    }
+    DFS(v * 2);
+    answer += v + ' ';
+    DFS(v * 2 + 1);
   }
   DFS(n);
   return answer;
@@ -30,11 +26,9 @@ function postorderTraversal(n) {
   let answer = '';
   function DFS(v) {
     if (v > 7) return;
-    else {
-      DFS(v * 2);
-      DFS(v * 2 + 1);
-      answer += v + ' ';
-    }
+    DFS(v * 2);
+    DFS(v * 2 + 1);
+    answer += v + ' ';
   }
   DFS(n);
   return answer;
